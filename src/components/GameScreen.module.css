@@ -23,6 +23,7 @@
 
 .answer {
     border-radius: 0.6rem;
+    display: flex;
     width: 45%;
     text-align: center;
     padding: 1rem;
@@ -31,11 +32,27 @@
     box-shadow: 3px 3px 4px lightblue ;
 }
 
+.blue {
+    background-color: rgb(49, 49, 204);
+}
+
+.answer > h3{
+    margin-right: 0.7rem;
+}
+
+.answer:hover {
+   background-color: rgb(49, 49, 204);
+   transition: 0.335s;
+}
+
 .confirmation {
+    width: 100%;
     text-align: center;
-    animation: slide-down 300ms ease-out forwards;
+    margin-top: 1rem;
+    transition: slide-down 1000ms ease-out forwards;
 }
 
 .confirmation h3 {
     margin: 1rem 0;
+    font-style: italic;
 }

@@ -10,8 +10,10 @@
 
 .red {
     background-color: rgb(233, 18, 18);
+    color: black;
 }
 
-.green{
-    background-color: rgb(91, 231, 91);
+.blue {
+    background-color: rgb(49, 49, 204);
+    color: white;
 }
