@@ -2,7 +2,8 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const questionsInitialState = {
     questions: {},
-    level: 0
+    level: 0,
+    passed: null
 }
 
 const qSlice = createSlice({
@@ -12,6 +13,9 @@ const qSlice = createSlice({
         addQuestions(state, action){
             console.log('i am here')
             state.questions = action.payload
+        },
+        setPassed: (state, action) =>{
+            state.passed = action.payload;
         }
     }
 })

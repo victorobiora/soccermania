@@ -1,15 +1,15 @@
-import classes from './LevelComponent.module.css'
+import classes from "./LevelComponent.module.css";
 
-const Level = props => {
- return (
+const Level = (props) => {
+  return (
     <div className={classes.item}>
-    <span></span>
-    <div className={classes.pentagon}>
-      <h2>{props.selectedLevel}</h2>
+      <div className={classes.pentagon}>
+        <div className={classes.color}>
+          <h2>{props.selectedLevel}</h2>
+        </div>
+      </div>
     </div>
-    <span></span>
-  </div>
- )
-}
+  );
+};
 
-export default Level
+export default Level;

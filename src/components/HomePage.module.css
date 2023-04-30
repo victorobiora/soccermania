@@ -42,6 +42,7 @@
 
 .playBounce {
     animation: bounce 1s infinite;
+   
   }
   
   @keyframes bounce {

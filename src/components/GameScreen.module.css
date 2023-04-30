@@ -12,12 +12,14 @@
     padding-top: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 5px 5px 7px lightblue ;
+    animation: question 0.75s ease-out forwards;
 }
 
 .options {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    animation: option 0.75s ease-out forwards;
 
 }
 
@@ -56,3 +58,34 @@
     margin: 1rem 0;
     font-style: italic;
 }
+
+.red {
+    background-color: rgb(233, 18, 18);
+    color: black;
+}
+
+.green {
+    background-color: rgb(13, 141, 13);
+}
+
+  
+@keyframes question {
+    0%{
+      transform: translateY(-150px);
+    }
+    100% {
+        transform: translateY(0);
+      }
+   
+  }
+  
+  @keyframes option {
+    0%{
+      transform: translateX(-150px);
+    }
+    100% {
+        transform: translateX(0);
+      }
+   
+  }
+  

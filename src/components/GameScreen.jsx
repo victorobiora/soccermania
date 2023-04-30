@@ -3,17 +3,21 @@ import Button from "@/ui/button";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import OptionField from "./OptionField";
+import { useDispatch } from "react-redux";
+import { qActions } from "@/store/soccer-redux";
+import { useRouter } from "next/router";
 
 const GameScreen = (props) => {
   const [showConfirm, setshowConfirm] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [answeredQuestion, setAnsweredQuestion] = useState(false);
   const QuestionsArray = useSelector((state) => state.q.questions);
+  const dispatch = useDispatch();
+  const router = useRouter()
   const setQuestion = QuestionsArray[0];
   const correctAnswer = setQuestion.correctAnswer;
   console.log(setQuestion, correctAnswer);
 
-
-  
   //Structure our picked question in order to input OptionField dynamically
   const structuredQuestion = [
     {
@@ -36,6 +40,9 @@ const GameScreen = (props) => {
 
   // Store selected option in state
   const selectedOptionHandler = (val) => {
+    if (answeredQuestion) {
+      return;
+    }
     setshowConfirm(true);
     setSelectedOption(val);
   };
@@ -46,10 +53,19 @@ const GameScreen = (props) => {
     setshowConfirm(false);
   };
 
-  //confirm if user got the answer right or not
-  const checkAnswerHandler = el => {
-    console.log(correctAnswer === selectedOption)
-  }
+  //confirm if user got the answer right or not then relay that to the redux store
+  //passed value will be used in evaluating if a new question is pushed or if it's game over
+  const checkAnswerHandler = (el) => {
+    setAnsweredQuestion(true);
+    setshowConfirm(false);
+    if(correctAnswer === selectedOption) {
+         dispatch(qActions.setPassed(true))
+    }else if(correctAnswer !== selectedOption){
+        dispatch(qActions.setPassed(false))
+    }
+    // move to levels page 
+      router.push('/play/level')
+  };
 
   return (
     <section className={classes.Q}>
@@ -64,6 +80,8 @@ const GameScreen = (props) => {
             returnValue={selectedOptionHandler}
             backColor={selectedOption === q.option}
             key={q.position}
+            answered={answeredQuestion}
+            correctAnswer={correctAnswer}
           />
         ))}
         {showConfirm && (
@@ -72,7 +90,9 @@ const GameScreen = (props) => {
             <Button color="red" onClick={removeConfirmHandler}>
               No
             </Button>
-            <Button color="blue" onClick={checkAnswerHandler}>Yes</Button>
+            <Button color="blue" onClick={checkAnswerHandler}>
+              Yes
+            </Button>
           </div>
         )}
       </div>
