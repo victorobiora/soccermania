@@ -1,10 +1,26 @@
 import classes from "./LevelComponent.module.css";
 
 const Level = (props) => {
+
+  let color;
+  console.log(props.passed, props.passing)
+
+  if(props.passed && props.passing){
+     color = `${classes.structure} ${classes.passed} ${classes.passedColor} ${classes.addAnimation}`
+  }else if(props.passing && props.passed === false){
+    color = `${classes.structure} ${classes.failedColor} ${classes.addAnimation}`
+  }else if(!props.passing && props.passed){
+    color = `${classes.structure} ${classes.passedColor}`
+  }else if(!props.passing && props.passed === false ){  
+     color = `${classes.structure} ${classes.passed} ${classes.failedColor}`
+  }else if(props.passed === null){
+    color = `${classes.structure}`
+  }
+
   return (
     <div className={classes.item}>
       <div className={classes.pentagon}>
-        <div className={classes.color}>
+        <div className={color}>
           <h2>{props.selectedLevel}</h2>
         </div>
       </div>
@@ -13,3 +29,4 @@ const Level = (props) => {
 };
 
 export default Level;
+

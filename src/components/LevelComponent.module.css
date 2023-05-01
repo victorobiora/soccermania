@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -33,16 +33,37 @@
 
 }
 
-.color{
-    background-color: rgb(91, 231, 91);
-    border-radius: 50%;
-    animation: pentagonswitch 2s ease-out forwards;
+.structure{
+    border-radius: 50%; 
 }
 
-.color h2 {
+.addAnimation {
+     animation: pentagonswitch 2s ease-out forwards;
+}
+
+.passed {
+    height: 7rem;
+    width: 7rem; 
+}
+
+.passedColor {
+    background-color: rgb(91, 231, 91);
+   
+}
+
+.failedColor {
+    background-color: rgb(233, 18, 18);
+}
+
+.structure h2 {
     position: absolute;
     top: 38%;
     left: 40%;
+}
+
+.buttonContainer {
+    width: 100%;
+    text-align: center;
 }
 
 @keyframes pentagonswitch {

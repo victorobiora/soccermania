@@ -1,11 +1,12 @@
 import classes from "./GameScreen.module.css";
-import Button from "@/ui/button";
+import Button from "@/ui/CustomButton";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import OptionField from "./OptionField";
 import { useDispatch } from "react-redux";
 import { qActions } from "@/store/soccer-redux";
 import { useRouter } from "next/router";
+import { levelActions } from "@/store/soccer-redux";
 
 const GameScreen = (props) => {
   const [showConfirm, setshowConfirm] = useState(false);
@@ -60,8 +61,10 @@ const GameScreen = (props) => {
     setshowConfirm(false);
     if(correctAnswer === selectedOption) {
          dispatch(qActions.setPassed(true))
+         dispatch(levelActions.addPassingStage({status: true}))
     }else if(correctAnswer !== selectedOption){
         dispatch(qActions.setPassed(false))
+        dispatch(levelActions.addPassingStage({status: false}))
     }
     // move to levels page 
       router.push('/play/level')

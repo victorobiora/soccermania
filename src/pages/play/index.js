@@ -4,21 +4,27 @@ import totalQuestions from "@/ui/questions";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { qActions } from "@/store/soccer-redux";
+import { levelThunk } from "@/store/soccer-redux";
+import { useSelector } from "react-redux";
 
 const PlayGame = (props) => {
+  const areThereQs = useSelector((state) => state.q.questions);
   const dispatch = useDispatch();
-  const [dataFetched, setdataFetched] = useState(false)
+  const [dataFetched, setdataFetched] = useState(false);
 
-useEffect(() => {
-  dispatch(qActions.addQuestions(props.setQuestions));
-  setdataFetched(true)
-}, []);
+  useEffect(() => {
+    if (areThereQs.length === 0) {
+    dispatch(qActions.addQuestions(props.setQuestions));
+    setdataFetched(true);
+    dispatch(levelThunk());
+    }else if(areThereQs.length > 0){
+      setdataFetched(true);
+    }
 
-  return (
-    <Fragment>
-      {dataFetched && <GameScreen />} 
-    </Fragment>
-  );
+  }, []);
+  console.log('i reloaded')
+
+  return <Fragment>{dataFetched && <GameScreen/>}</Fragment>;
 };
 
 export const getStaticProps = async () => {
