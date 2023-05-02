@@ -26,8 +26,8 @@ const LevelComponent = (props) => {
   }
  
   return (
-    <Fragment>
-          <section className={classes.container}>
+    <div className={classes.overallContainer}>
+          <section className={classes.itemsContainer}>
       {levelsArray.map((el) => (
       <Level key={el.level} passed = {el.passed} passing={el.passing} selectedLevel= {el.level}/>
       ))}
@@ -37,7 +37,7 @@ const LevelComponent = (props) => {
      <Button onClick={startOverHandler}> HomePage </Button>
      <Button color= 'blue' onClick={nextQuestionHandler}> Next Question</Button>
   </div>
-    </Fragment>
+    </div>
 
   );
 };

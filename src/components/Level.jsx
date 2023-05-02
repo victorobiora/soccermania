@@ -6,13 +6,13 @@ const Level = (props) => {
   console.log(props.passed, props.passing)
 
   if(props.passed && props.passing){
-     color = `${classes.structure} ${classes.passed} ${classes.passedColor} ${classes.addAnimation}`
+     color = `${classes.structure} ${classes.answered} ${classes.passedColor} ${classes.addAnimation}`
   }else if(props.passing && props.passed === false){
     color = `${classes.structure} ${classes.failedColor} ${classes.addAnimation}`
   }else if(!props.passing && props.passed){
-    color = `${classes.structure} ${classes.passedColor}`
-  }else if(!props.passing && props.passed === false ){  
-     color = `${classes.structure} ${classes.passed} ${classes.failedColor}`
+    color = `${classes.structure} ${classes.passedColor} ${classes.answered}`
+  }else if(!props.passing && props.passed === false){  
+     color = `${classes.structure} ${classes.answered} ${classes.failedColor}`
   }else if(props.passed === null){
     color = `${classes.structure}`
   }

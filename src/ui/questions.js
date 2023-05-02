@@ -8,7 +8,7 @@ const easyQuestions = [
       "Sean Dyche",
       "Maurizio Sarri",
     ],
-    correctAnswer: "Jose mourinho",
+    correctAnswer: "Jose Mourinho",
   },
   {
     question:
@@ -57,7 +57,7 @@ const easyQuestions = [
     question:
       "What Club did Frank Lampard move to after leaving Chelsea in 2014?",
     options: ["LA Galaxy", "Wrexham FC", "Man. City", "West Ham"],
-    correctAnswer: "Man City",
+    correctAnswer: "Man. City",
   },
   {
     question: "Who won the African Cup of Nations in 2013?",
