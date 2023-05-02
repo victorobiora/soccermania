@@ -20,9 +20,8 @@ const PlayGame = (props) => {
     }else if(areThereQs.length > 0){
       setdataFetched(true);
     }
-
   }, []);
-  console.log('i reloaded')
+
 
   return <Fragment>{dataFetched && <GameScreen/>}</Fragment>;
 };

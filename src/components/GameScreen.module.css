@@ -1,15 +1,13 @@
 
-.Q {
-    height: 30rem;
+.Q { 
     margin: auto;
     margin-top: 8rem;
 }
 
 .question {
-    height: 20%;
     border-radius: 0.6rem;
     text-align: center;
-    padding-top: 1.5rem;
+    padding: 1.5rem 0;
     margin-bottom: 1.5rem;
     box-shadow: 5px 5px 7px lightblue ;
     animation: question 0.75s ease-out forwards;

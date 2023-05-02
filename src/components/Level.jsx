@@ -1,20 +1,19 @@
 import classes from "./LevelComponent.module.css";
 
 const Level = (props) => {
-
   let color;
-  console.log(props.passed, props.passing)
+  //console.log(props.passed, props.passing)
 
-  if(props.passed && props.passing){
-     color = `${classes.structure} ${classes.answered} ${classes.passedColor} ${classes.addAnimation}`
-  }else if(props.passing && props.passed === false){
-    color = `${classes.structure} ${classes.failedColor} ${classes.addAnimation}`
-  }else if(!props.passing && props.passed){
-    color = `${classes.structure} ${classes.passedColor} ${classes.answered}`
-  }else if(!props.passing && props.passed === false){  
-     color = `${classes.structure} ${classes.answered} ${classes.failedColor}`
-  }else if(props.passed === null){
-    color = `${classes.structure}`
+  if (props.passed && props.passing) {
+    color = `${classes.structure} ${classes.answered} ${classes.passedColor} ${classes.addAnimation}`;
+  } else if (props.passing && props.passed === false) {
+    color = `${classes.structure} ${classes.failedColor} ${classes.addAnimation}`;
+  } else if (!props.passing && props.passed) {
+    color = `${classes.structure} ${classes.passedColor} ${classes.answered}`;
+  } else if (!props.passing && props.passed === false) {
+    color = `${classes.structure} ${classes.answered} ${classes.failedColor}`;
+  } else if (props.passed === null) {
+    color = `${classes.structure}`;
   }
 
   return (
@@ -29,4 +28,3 @@ const Level = (props) => {
 };
 
 export default Level;
-

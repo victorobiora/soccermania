@@ -65,6 +65,7 @@ const GameScreen = (props) => {
     }else if(correctAnswer !== selectedOption){
         dispatch(qActions.setPassed(false))
         dispatch(levelActions.addPassingStage({status: false}))
+        dispatch(levelActions.updateFailedState())
     }
     // move to levels page 
       router.push('/play/level')

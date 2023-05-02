@@ -1,19 +1,27 @@
 import classes from "./LevelComponent.module.css";
 import Level from "./Level";
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { qActions } from "@/store/soccer-redux";
 import { useRouter } from "next/router";
 import Button from "@/ui/CustomButton";
 
-const dummyL = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 const LevelComponent = (props) => {
   const levelsArray = useSelector(state => state.levels.levelNo);
+  const failedState = useSelector(state => state.levels.hasFailed);
+  const QuestionsArray = useSelector((state) => state.q.questions);
   const router = useRouter();
   const dispatch = useDispatch()
-  console.log(levelsArray);
+  let nextOrPlayAgain = 'Next Question'
+  console.log(levelsArray)
+
+    //First check if we're on the last question, then update button to play again.
+    if (QuestionsArray.length === 1) {
+      nextOrPlayAgain = 'Play Again'
+    }
+
+
 
   const startOverHandler = ()=> {
     dispatch(qActions.clearQuestions());
@@ -34,8 +42,9 @@ const LevelComponent = (props) => {
      
     </section>
   <div className={classes.buttonContainer}>
-     <Button onClick={startOverHandler}> HomePage </Button>
-     <Button color= 'blue' onClick={nextQuestionHandler}> Next Question</Button>
+     <Button onClick={startOverHandler}> Home </Button>
+     {!failedState &&    <Button color= 'blue' onClick={nextQuestionHandler}> {nextOrPlayAgain}</Button>}
+  
   </div>
     </div>
 

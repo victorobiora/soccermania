@@ -241,7 +241,7 @@ const midQuestions = [
     correctAnswer: "Aberdeen",
   },
   {
-    question: `In Argentina's 2-0 win over mexico in 2022, Lionel Messi scored the first global. Who scored the second?`,
+    question: `In Argentina's 2-0 win over mexico in 2022, Lionel Messi scored the first goal. Who scored the second?`,
     options: [
       "Julian Alvarez",
       "Enzo Fernandez",
@@ -340,7 +340,7 @@ const hardQuestions = [
   },
   {
     question:
-      "In 2012, Bayern Munich beat Real Madrid after a penalty shootout. Cristiano Ronaldo and Sergio Ramos missed their Penalties. Who was the third person?",
+      "In 2012, Bayern Munich beat Real Madrid after a penalty shootout. Cristiano Ronaldo and Sergio Ramos missed their penalties. Who was the third person?",
     options: ["Kaka", "Xabi Alonso", "Karim Benzema", "Sami Khedira"],
     correctAnswer: "Kaka",
   },
@@ -355,14 +355,14 @@ const hardQuestions = [
     correctAnswer: "Carlos Tevez",
   },
   {
-    question: `?`,
+    question: `'If God had wanted us to play football up in the clouds, He would have put grass up there'. Which Coach said this?`,
     options: [
-      "Julian Alvarez",
-      "Enzo Fernandez",
-      "Alexis McAllister",
-      "Angel Di Maria",
+      "Pep Guardiola",
+      "Brian Clough",
+      "Johan Cruyff",
+      "Bill Shankly",
     ],
-    correctAnswer: "Enzo Fernandez",
+    correctAnswer: "Brian Clough",
   },
   {
     question: `Arsenal's Arshavin popularly scored 4 goals against which club in the 08/09 EPL season?`,
