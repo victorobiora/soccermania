@@ -6,27 +6,74 @@ import { useEffect, useState } from "react";
 import { qActions } from "@/store/soccer-redux";
 import { levelThunk } from "@/store/soccer-redux";
 import { useSelector } from "react-redux";
+import { MongoClient } from "mongodb";
+import ErrorComponent from "@/components/ErrorComponent";
 
 const PlayGame = (props) => {
   const areThereQs = useSelector((state) => state.q.questions);
   const dispatch = useDispatch();
   const [dataFetched, setdataFetched] = useState(false);
-
+  
   useEffect(() => {
-    if (areThereQs.length === 0) {
-    dispatch(qActions.addQuestions(props.setQuestions));
-    setdataFetched(true);
-    dispatch(levelThunk());
-    }else if(areThereQs.length > 0){
-      setdataFetched(true);
+    if (props.setQuestions === null) {
+      setdataFetched(false);
+      console.log(JSON.parse(props.error))
+    } else {
+      if (areThereQs.length === 0) {
+        dispatch(qActions.addQuestions(props.setQuestions));
+        setdataFetched(true);
+        dispatch(levelThunk());
+      } else if (areThereQs.length > 0) {
+        setdataFetched(true);
+      }
     }
   }, []);
 
-
-  return <Fragment>{dataFetched && <GameScreen/>}</Fragment>;
+  return (
+    <Fragment>
+      {!dataFetched && <ErrorComponent />}
+      {dataFetched && <GameScreen />}
+    </Fragment>
+  );
 };
 
 export const getStaticProps = async () => {
+  let retrievedQuestionsObject;
+  const easy = [];
+  const mid = [];
+  const hard = [];
+  try {
+    //Obtain the questions sent to mondodb database
+    const client = await MongoClient.connect(
+      "mongodb+srv://victorobioratech:Io5Lww9Od7QzkLem@cluster0.kleoeot.mongodb.net/meetups?retryWrites=true&w=majority"
+    );
+
+    const db = client.db();
+
+    const QuestionsCollection = db.collection("questions");
+
+    const result = await QuestionsCollection.find().toArray();
+
+    const data = [...result];
+
+    const json = JSON.stringify(data);
+
+    const parsedResult = JSON.parse(json);
+
+    retrievedQuestionsObject = parsedResult[0];
+
+    await client.close();
+  } catch (err) {
+      return {
+        props: {
+          setQuestions: null,
+          error: JSON.stringify(err),
+          fin: 'fjvd'
+        }
+      }
+  }
+
+  //generate sequence for random questions to be picked
   const generateQuestionsArray = (arg) => {
     const randomNumbers = [];
 
@@ -45,17 +92,14 @@ export const getStaticProps = async () => {
 
   const easyQuestionsIndexesArray = generateQuestionsArray(20);
   const midHardQuestionsIndexesArray = generateQuestionsArray(15);
-  const easy = [];
-  const mid = [];
-  const hard = [];
 
   easyQuestionsIndexesArray.forEach((el) => {
-    easy.push(totalQuestions.easyQuestions[el]);
+    easy.push(retrievedQuestionsObject.easyQuestions[el]);
   });
 
   midHardQuestionsIndexesArray.forEach((el) => {
-    mid.push(totalQuestions.midQuestions[el]);
-    hard.push(totalQuestions.hardQuestions[el]);
+    mid.push(retrievedQuestionsObject.midQuestions[el]);
+    hard.push(retrievedQuestionsObject.hardQuestions[el]);
   });
 
   return {

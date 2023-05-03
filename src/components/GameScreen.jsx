@@ -68,7 +68,11 @@ const GameScreen = (props) => {
         dispatch(levelActions.updateFailedState())
     }
     // move to levels page 
+    setTimeout(()=> {
       router.push('/play/level')
+    },
+    1000)
+    
   };
 
   return (

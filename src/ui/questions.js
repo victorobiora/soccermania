@@ -355,34 +355,29 @@ const hardQuestions = [
     correctAnswer: "Carlos Tevez",
   },
   {
-    question: `'If God had wanted us to play football up in the clouds, He would have put grass up there'. Which Coach said this?`,
-    options: [
-      "Pep Guardiola",
-      "Brian Clough",
-      "Johan Cruyff",
-      "Bill Shankly",
-    ],
+    question: `'If God had wanted us to play football up in the clouds, He would have put grass up there'. Who said this?`,
+    options: ["Pep Guardiola", "Brian Clough", "Johan Cruyff", "Bill Shankly"],
     correctAnswer: "Brian Clough",
   },
   {
-    question: `Arsenal's Arshavin popularly scored 4 goals against which club in the 08/09 EPL season?`,
-    options: ["Aston Villa", "Liverpool FC", "Chelsea FC", "Portsmouth FC"],
-    correctAnswer: "Liverpool FC",
+    question: `Wayne Rooney featured on the cover of both FIFA 06 and FIFA 07. Who else featured on the main cover in those years?`,
+    options: ["Thierry Henry", "Ronaldinho", "Cristiano Ronaldo", "Adriano"],
+    correctAnswer: "Ronaldinho",
   },
   {
-    question: `Kylian Mbappe is PSG's record top scorer of all time. Who is in third place(as of 2023)?`,
+    question: `Laurent Pokou (Côte d'Ivoire International) has how many goals at the African Cup of Nations ?`,
+    options: ["12", "15", "14", "09"],
+    correctAnswer: "14",
+  },
+  {
+    question: `Who won the african player of the year award in 2007?`,
     options: [
-      "Zlatan Ibrahimovic",
-      "Edinson Cavani",
-      "Blaise Matuidi",
-      "Pauleta",
+      "Solomon Kalou",
+      "Didier Drogba",
+      "Emmanuel Adebayor",
+      "Frédéric Kanouté",
     ],
-    correctAnswer: "Zlatan Ibrahimovic",
-  },
-  {
-    question: `What is the name of the only player to in the Balon D'or while playing for Liverpool?`,
-    options: ["Ian Rush", "Jaime Carragher", "Bob Paisley", "Micheal Owen"],
-    correctAnswer: "Micheal Owen",
+    correctAnswer: "Frédéric Kanouté",
   },
 ];
 
