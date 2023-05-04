@@ -8,7 +8,7 @@ import { qActions } from "@/store/soccer-redux";
 import { useRouter } from "next/router";
 import { levelActions } from "@/store/soccer-redux";
 
-const GameScreen = (props) => {
+const GameScreen = () => {
   const [showConfirm, setshowConfirm] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [answeredQuestion, setAnsweredQuestion] = useState(false);

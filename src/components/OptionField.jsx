@@ -1,8 +1,7 @@
-import { useState } from "react";
 import classes from "./GameScreen.module.css";
 
 const OptionField = (props) => {
-  const [selected, setSelected] = useState(false);
+
   let givenColor;
 
   if (props.answered === false && props.backColor) {
@@ -21,7 +20,6 @@ const OptionField = (props) => {
   }
 
   const pickedOptionHandler = (el) => {
-    setSelected(true);
     props.returnValue(props.setOption);
   };
 

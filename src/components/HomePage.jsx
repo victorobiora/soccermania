@@ -1,7 +1,7 @@
 import classes from "./HomePage.module.css";
 import Link from "next/link";
 
-const HomePage = (props) => {
+const HomePage = () => {
   return (
     <section className={classes.container}>
       <div className={classes.containerContent}>

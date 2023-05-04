@@ -1,7 +1,7 @@
 import classes from "./LoadingComponent.module.css";
 import { ProgressBar } from "react-loader-spinner";
 
-const LoadingPage = (props) => {
+const LoadingPage = () => {
   return (
     <section className={classes.container}>
       <ProgressBar

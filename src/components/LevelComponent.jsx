@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Button from "@/ui/CustomButton";
 
 
-const LevelComponent = (props) => {
+const LevelComponent = () => {
   const levelsArray = useSelector(state => state.levels.levelNo);
   const failedState = useSelector(state => state.levels.hasFailed);
   const QuestionsArray = useSelector((state) => state.q.questions);
