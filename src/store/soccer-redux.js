@@ -43,7 +43,6 @@ const levelSlice = createSlice({
           passing: false,
         });
       }
-      console.log(fixedLevels);
       state.levelNo = fixedLevels;
     },
     addPassingStage: (state, action) => {
@@ -56,7 +55,6 @@ const levelSlice = createSlice({
         state.levelNo[findIndex + 1].passing = true;
         state.levelNo[findIndex + 1].passed = action.payload.status;
       }
-      console.log(findIndex);
     },
     updateFailedState(state, action){
       state.hasFailed = true

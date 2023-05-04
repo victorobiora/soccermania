@@ -1,7 +1,7 @@
 import GameScreen from "@/components/GameScreen";
 
-const play = () => {
+const startplaying = () => {
   return <GameScreen />;
 };
 
-export default play;
+export default startplaying;

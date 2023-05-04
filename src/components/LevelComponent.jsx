@@ -14,7 +14,6 @@ const LevelComponent = (props) => {
   const router = useRouter();
   const dispatch = useDispatch()
   let nextOrPlayAgain = 'Next Question'
-  console.log(levelsArray)
 
     //First check if we're on the last question, then update button to play again.
     if (QuestionsArray.length === 1) {
@@ -30,7 +29,12 @@ const LevelComponent = (props) => {
 
   const nextQuestionHandler = () => {
       dispatch(qActions.updateNextQuestion());
-      router.push('/play')
+      if(QuestionsArray.length === 1){
+        router.push('/play')
+      }else{
+          router.push('/play/startplaying') 
+      }
+   
   }
  
   return (

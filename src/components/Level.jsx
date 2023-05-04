@@ -2,7 +2,6 @@ import classes from "./LevelComponent.module.css";
 
 const Level = (props) => {
   let color;
-  //console.log(props.passed, props.passing)
 
   if (props.passed && props.passing) {
     color = `${classes.structure} ${classes.answered} ${classes.passedColor} ${classes.addAnimation}`;

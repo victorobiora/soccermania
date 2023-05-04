@@ -17,7 +17,7 @@ const GameScreen = (props) => {
   const router = useRouter()
   const setQuestion = QuestionsArray[0];
   const correctAnswer = setQuestion.correctAnswer;
-  console.log(setQuestion, correctAnswer);
+
 
   //Structure our picked question in order to input OptionField dynamically
   const structuredQuestion = [
