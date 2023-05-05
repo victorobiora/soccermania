@@ -19,7 +19,7 @@ const GameScreen = () => {
   if(QuestionsArray.length === 0){
     return <div>The Questions Array are empty</div>
   }
-  
+
   const setQuestion = QuestionsArray[0];
   const correctAnswer = setQuestion.correctAnswer;
 

@@ -4,7 +4,6 @@
     width: 100vw;
     background: url('https://editorial.uefa.com/resources/025e-0fac62eb08cc-e6eec4b938a5-1000/ucl-breaking-news.jpg');
     background-size: cover;
-
 }
 
 .containerContent {
@@ -12,9 +11,18 @@
     padding: 1rem;
 }
 
+@media screen and (max-width: 450px) {
+  .containerContent {
+      width: 100%;
+  }
+
+  .container {
+     text-align: center;
+  }
+}
+
 .appName {
     font-style: italic;
-    font-family: cursive; 
     margin-top: 0.5rem;
     margin-bottom: 2rem;
 }

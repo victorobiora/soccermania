@@ -65,6 +65,16 @@
     background-color: rgb(13, 141, 13);
 }
 
+
+@media screen and (max-width: 450px) {
+    .question h2 {
+        font-size: medium;
+    }
+  
+    .options h3{
+       font-size: medium;
+    }
+  }
   
 @keyframes question {
     0%{

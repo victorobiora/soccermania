@@ -1,6 +1,7 @@
 import classes from "./LevelComponent.module.css";
 
 const Level = (props) => {
+ 
   let color;
 
   if (props.passed && props.passing) {

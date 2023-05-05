@@ -1,7 +1,10 @@
-import LevelComponent from "@/components/LevelComponent"
+import LevelComponent from "@/components/LevelComponent";
+import useCheck from "@/ui/useCheck";
 
 const Level = () => {
-     return <LevelComponent/>
-}
+ useCheck();
 
-export default Level
+  return <LevelComponent />;
+};
+
+export default Level;

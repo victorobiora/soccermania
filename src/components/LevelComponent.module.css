@@ -1,7 +1,15 @@
 .overallContainer {
     height: 100vh;
     width: 100vw;
-    padding-top: 3rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.swipeText {
+   display: block;
+   font-style: italic;
+   margin-bottom: 1.5rem;
+   font-size: medium;
 }
 
 .itemsContainer {
@@ -13,9 +21,9 @@
     flex-wrap: wrap;
 }
 
-@media screen and (min-width: 400px) {
-    .itemsContainer {
-      height: 80%;
+@media screen and (min-width: 450px) {
+    .swipeText {
+        display: none;
     }
   }
 
