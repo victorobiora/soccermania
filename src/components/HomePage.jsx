@@ -17,7 +17,6 @@ const HomePage = () => {
               </button>
             </Link>
 
-            <button className={classes.playButton}>About</button>
           </div>
         </div>
       </div>
